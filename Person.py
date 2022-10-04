@@ -1,3 +1,4 @@
+from postman import Postman
 class Person:
     def __init__(self, name):
         self.name = name
@@ -14,20 +15,10 @@ class Person:
 
     def deliver_Letter(self):
         if self.name == 'Alice':
-            print('Alice has delivered a letter to Bob')
-            letterboxEmpty = False
-            if letterboxEmpty == False:
-                print('The flag is up, Bob has a new letter!')
-            else:
-                print('The flag is down, Bob has no new message')
+            print('Alice has delivered a letter to the Post Office')
 
         elif self.name == 'Bob':
-            print('Bob has dilivered a letter to Alice')
-            letterboxEmpty = False
-            if letterboxEmpty == False:
-                print('The flag is up, Alice has a new letter!')
-            else:
-                print('The flag is down, Alice has no new message')
+            print('Alice has delivered a letter to the Post Office')
         else:
             print('ERROR')
 
@@ -37,6 +28,22 @@ class Person:
         elif letterReader == 'Bob':
             print('Bob has read the letter')
 
+    def encrypted(self):
+        if letterWritter == 'Alice':
+            print('Alice has encrypted the letter')
+        elif letterWritter == 'Bob':
+            print('Bob has encrypted the letter')
+        else:
+            print('ERROR')
+
+    def decrypted(self):
+        if letterWritter == 'Alice':
+            print('Bob has decrypted the letter')
+        elif letterWritter == 'Bob':
+            print('Alice has decrypted the letter')
+        else:
+            print('ERROR')
+
 letterWritter = input('Who is writing the letter: ')
 if letterWritter == 'Alice':
     letterReader = 'Bob'
@@ -45,9 +52,16 @@ elif letterWritter == 'Bob':
 else:
     print('ERROR')
 
-person1 = Person(letterWritter)
-person1.write_Letter()
-person1.deliver_Letter()
-person1.read_letter()
+letterState = 'Encrypted'
+postman = 'Charli'
+p1 = Person(letterWritter)
+p1.write_Letter()
+p1.encrypted()
+p1.deliver_Letter()
+po1 = Postman.receivedLetter(postman)
+po1 = Postman.pickedUp(postman)
+po1 = Postman.deliveredLetter(postman)
+p1.decrypted()
+p1.read_letter()
 
 
